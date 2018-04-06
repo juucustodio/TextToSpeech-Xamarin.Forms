@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Plugin.TextToSpeech;
 using Xamarin.Forms;
 
 namespace TextToSpeechDemo
@@ -13,5 +10,12 @@ namespace TextToSpeechDemo
 		{
 			InitializeComponent();
 		}
+
+
+	    public async void ButtonClick(object sender, EventArgs e)
+	    {
+            if (!String.IsNullOrWhiteSpace(Texto.Text))
+	            await CrossTextToSpeech.Current.Speak(Texto.Text);
+	    }
 	}
 }
